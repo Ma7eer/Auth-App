@@ -7,7 +7,7 @@
     "port": "8000"
   },
   "scripts": {
-    "start": "start http://localhost:8000/ && nodemon server.js",
+    "start": "nodemon server.js && start http://localhost:8000/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,9 +23,15 @@
   "keywords": [
     "express",
     "node",
-    "node.js"
+    "node.js",
+    "ejs",
+    "body-parser",
+    "bulma"
   ],
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "bulma": "^0.7.1",
+    "ejs": "^2.6.1",
     "express": "^4.16.3"
   },
   "devDependencies": {
