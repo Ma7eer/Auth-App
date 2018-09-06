@@ -1,6 +1,6 @@
 const express = require('express'),
   app = express(),
-  bodyParser = require('body-parser')
+  bodyParser = require('body-parser');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());
@@ -18,10 +18,10 @@ app.set('view engine', 'ejs');
 const PORT = process.env.npm_package_config_port || 3000;
 
 app.get('/', (req, res) => {
-  let world = 'world!'
+  let world = 'world!';
   res.render('pages/home', {
     world: world
   });
-})
+});
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
