@@ -1,18 +1,47 @@
 <% include ../partials/header %>
-<div class="column is-half is-offset-3">
-<article class="message is-large">
-  <div class="message-header">
-    <p>Hello <%= world %></p>
+<section class="hero is-primary is-medium is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <h1 class="logo title">Auth App</h1>
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              Sign-in
+            </a>
+            <a class="navbar-item">
+              Login
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
   </div>
-  <div class="message-body">
-    This is a simple boiler-plate that allows anyone to easily get going with
-    building a simple <strong>express</strong> application without having to do much setup. This
-    app comes with <strong>ejs</strong> as the main template engine,
-    <strong>body-parser</strong> for data association between template and app,
-    and <strong>bulma</strong> as the main css framework. Of course if you don't
-    like the choices then feel free to make any changes as needed to make your
-    experience better. Happy Hacking!
-  </div>
-</article>
-</div>
+
+  <!-- Hero content: will be in the middle -->
+  <section class="hero is-large">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Hi! I am Auth App!
+        </h1>
+        <h2 class="subtitle">
+          A simple Authentication Application Built with node js
+        </h2>
+      </div>
+    </div>
+  </section>
+</section>
+
+
 <% include ../partials/footer %>
