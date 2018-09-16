@@ -1,8 +1,2 @@
-# express-ejs-bodyparser-bulma-boilderplate
-A boilerplate to get you started with building an express application
-
-To run the boilerplate app
-
-```
-npm install && npm start
-```
+# Auth App
+A Simple Authentication App built with node js
