@@ -27,5 +27,8 @@ app.get('/signin', Router.signUp);
 /* log in */
 app.get('/login', Router.logIn);
 
+/* profile page */
+app.get('/profile/:username', Router.profile);
+
 /* eslint-disable-next-line no-console */
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

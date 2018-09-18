@@ -8,6 +8,9 @@ const routes = {
   },
   'logIn': (req, res) => {
     res.render('pages/logIn');
+  },
+  'profile': (req, res) => {
+    res.render('pages/profile');
   }
 };
 
