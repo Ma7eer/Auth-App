@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.nav-menu-center {
+  text-align: center;
+}

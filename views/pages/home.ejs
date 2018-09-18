@@ -1,47 +1,21 @@
 <% include ../partials/header %>
-<section class="hero is-primary is-medium is-fullheight">
-  <!-- Hero head: will stick at the top -->
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item">
-            <h1 class="logo title">Auth App</h1>
-          </a>
-          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navbarMenuHeroA" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item">
-              Sign-in
-            </a>
-            <a class="navbar-item">
-              Login
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
 
-  <!-- Hero content: will be in the middle -->
-  <section class="hero is-large">
+<section class="hero is-primary is-bold is-fullheight">
+    <% include ./navbar %>
+    <!-- Hero body -->
     <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Hi! I am Auth App!
-        </h1>
-        <h2 class="subtitle">
-          A simple Authentication Application Built with node js
-        </h2>
-      </div>
+        <div class="container has-text-centered">
+            <div class="column is-6 is-offset-3">
+                <h1 class="title is-size-1">
+                    Hi! I am Auth App
+                </h1>
+                <h2 class="subtitle">
+                    Sign Up to create your user profile and then you can log in
+                    anytime and... and... and that it!
+                </h2>
+            </div>
+        </div>
     </div>
-  </section>
 </section>
-
 
 <% include ../partials/footer %>
