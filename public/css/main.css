@@ -11,3 +11,13 @@ body {
 .nav-menu-center {
   text-align: center;
 }
+
+.card-image {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+figure > img {
+  border-radius: 5%;
+}
