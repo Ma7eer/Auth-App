@@ -1,49 +1,39 @@
 // TODO: create two schemas for user profile and user auth 
 // TODO: think about if you want to create another form for a user profile or
 // just one
+/* PORT is set on package.json file under config */
+const PORT = process.env.npm_package_config_port || 3000;
 const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
   passport = require('passport'),
-  LocalStrategy = require('passport-local'),
-  expressSession = require('express-session'),
-  User = require('./models/user.js'),
-  appRoutes = require('./routes/appRoutes.js'),
-  signUpRoutes = require('./routes/signUpRoutes'),
-  logInRoutes = require('./routes/logInRoutes.js');
+  flash = require('connect-flash'),
+  morgan = require('morgan'),
+  cookieParser = require('cookie-parser'),
+  session = require('express-session'),
+  configDB = require('./config/database.js');
 
-mongoose.connect('mongodb://localhost/authApp');
+// CONNECT TO MONGODB
+mongoose.connect(configDB.url);
 
-/* parse application/x-www-form-urlencoded */
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+require('./config/passport.js')(passport); // pass passport for configuration
 
-/* use static files */
-app.use(express.static(__dirname + '/public'));
+// SETUP EXPRESS APP
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.urlencoded({extended: true})); // get information from html forms
+app.set('view engine', 'ejs'); // set up ejs for templating
+app.use(express.static(__dirname + '/public')); // use static files at public directory
 
-/* set view engine to ejs */
-app.set('view engine', 'ejs');
-
-/* setup passport config */
-app.use(expressSession({
-  secret: 'All the particles are dancing',
-  resave: false,
-  saveUninitialized: false
-}));
-
+// PASSPORT CONFIGURATION
+app.use(session({ secret: 'authishardauthishardauthishard' })); // session secret
 app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
-/* PORT is set on package.json file under config */
-const PORT = process.env.npm_package_config_port || 3000;
-
-app.use(appRoutes, signUpRoutes, logInRoutes);
+// routes ======================================================================
+require('./routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 /* eslint-disable-next-line no-console */
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
