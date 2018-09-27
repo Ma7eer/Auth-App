@@ -8,10 +8,12 @@
         <h3 class="title has-text-grey">Sign Up</h3>
         <p class="subtitle has-text-grey">Sign Up to get a user profile.</p>
         <div class="box">
-            <!-- show any messages that come back with authentication -->
-            <% if (message.length > 0) { %>
-              <div class="notification is-danger"><button class="delete"></button><%= message %></div>
-            <% } %>
+          <!-- show any messages that come back with authentication -->
+          <% if (message.length > 0) { %>
+          <div class="notification is-danger"><button class="delete"></button>
+            <%= message %>
+          </div>
+          <% } %>
           <form action="/signup" method="POST">
             <div class="field">
               <label style="display:flex;">username:</label>

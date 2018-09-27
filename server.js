@@ -1,9 +1,5 @@
-// TODO: create two schemas for user profile and user auth 
-// TODO: think about if you want to create another form for a user profile or
-// just one
-/* PORT is set on package.json file under config */
-const PORT = process.env.npm_package_config_port || 3000;
-const express = require('express'),
+const PORT = process.env.npm_package_config_port || 3000,
+  express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),

@@ -1,47 +1,46 @@
 <% include ../partials/header %>
 
 <section class="hero is-primary is-bold is-fullheight">
-  <% include ../partials/navbar %>
-      <div class="hero-body">
-          <div class="container has-text-centered">
-              <div class="column is-4 is-offset-4">
-                    <% if (logged) { %>
-                  <h3 class="title has-text-grey">Welcome back <%=
-                  user.local.username%>!</h3>
-                  <% } else { %>
-                  <h3 class="title has-text-grey">Welcome <%=
-                  user.local.username%>!</h3>
-                  <% } %>
-                  <div class="box">
-                      <figure class="avatar">
-                          <img src=<%=`https://api.adorable.io/avatars/245/${user.local.username}.png`%>>
-                      </figure>
-                      <div>
-                          <div class="card-content">
-                              <div class="media">
+    <% include ../partials/navbar %>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-grey">Welcome
+                    <%= user.local.username %>!</h3>
+                <div class="box">
+                    <figure class="avatar">
+                        <img
+                        src=<%=`https://api.adorable.io/avatars/245/${user.local.username}.png`
+                        %> /> </figure> <div>
+                        <div class="card-content">
+                            <div class="media">
                                 <div class="media-content">
-                                  <p class="title is-4 has-text-black"><%=user.local.username %></p>
-                                  <p class="subtitle is-6 has-text-black">@<%=user.local.username %></p>
+                                    <p class="title is-4 has-text-black">
+                                        <%=user.local.username %>
+                                    </p>
+                                    <p class="subtitle is-6 has-text-black">@
+                                        <%=user.local.username %>
+                                    </p>
                                 </div>
-                              </div>
-                              <div class="content">
+                            </div>
+                            <div class="content">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Phasellus nec iaculis mauris. <a>@lorem</a>.
                                 <a href="#">#epsum</a> <a href="#">#loremEpsum</a>
                                 <br>
                                 <time datetime="2016-1-1">2016-1-1</time>
-                              </div>
                             </div>
-                      </div>
-                  </div>
-                  <p class="has-text-grey">
-                      <a href="../">Sign Up</a> &nbsp;·&nbsp;
-                      <a href="../">Forgot Password</a> &nbsp;·&nbsp;
-                      <a href="../">Need Help?</a>
-                  </p>
-              </div>
-          </div>
-      </div>
+                        </div>
+                </div>
+            </div>
+            <p class="has-text-grey">
+                <a href="../">Sign Up</a> &nbsp;·&nbsp;
+                <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+                <a href="../">Need Help?</a>
+            </p>
+        </div>
+    </div>
+    </div>
 </section>
 
 <% include ../partials/footer %>

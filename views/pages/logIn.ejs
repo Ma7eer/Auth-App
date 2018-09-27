@@ -2,7 +2,6 @@
 
 <section class="hero is-primary is-bold is-fullheight">
   <% include ../partials/navbar %>
-  <!-- show any messages that come back with authentication -->
 
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -10,21 +9,24 @@
         <h3 class="title has-text-grey">Log In</h3>
         <p class="subtitle has-text-grey">Welcome back! Please log in.</p>
         <div class="box">
-          	<% if (message.length > 0) { %>
-              <div class="notification is-danger"><button class="delete"></button><%= message %></div>
-            <% } %>
+          <!-- show any messages that come back with authentication -->
+          <% if (message.length > 0) { %>
+          <div class="notification is-danger"><button class="delete"></button>
+            <%= message %>
+          </div>
+          <% } %>
           <form action="/login" method="post">
             <div class="field">
               <label style="display:flex;">username:</label>
               <div class="control">
-                <input class="input is-large is-primary" type="text" placeholder="Your name" autofocus="" name="username">
+                <input class="input is-large is-primary" type="text" placeholder="Your name" autofocus="" name="username" required>
               </div>
             </div>
 
             <div class="field">
               <div class="control">
                 <label style="display:flex;">Password:</label>
-                <input class="input is-large is-primary" type="password" placeholder="Your Password" name="password">
+                <input class="input is-large is-primary" type="password" placeholder="Your Password" name="password" required>
               </div>
             </div>
             <button class="button is-block is-info is-large
@@ -32,10 +34,10 @@
           </form>
         </div>
         <p class="has-text-grey">
-            <a href="/signup">Sign Up</a> &nbsp;·&nbsp;
-            <a href="/">Home</a> &nbsp;·&nbsp;
-            <a href="/login">Log In</a>
-          </p>
+          <a href="/signup">Sign Up</a> &nbsp;·&nbsp;
+          <a href="/">Home</a> &nbsp;·&nbsp;
+          <a href="/login">Log In</a>
+        </p>
       </div>
     </div>
   </div>

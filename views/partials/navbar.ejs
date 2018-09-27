@@ -14,22 +14,45 @@
             <div id="navbarMenu" class="navbar-menu">
                 <div class="navbar-end">
                     <span class="navbar-item">
-                        <a class="button is-white is-outlined" href="<%= url[0] %>">
+
+                        <% if(!isUserLoggedIn) { %>
+                            <a class="button is-white is-outlined" href="<%=
+                            path['Sign up'] %>">
+                                    <span class="icon">
+                                        <i class="fa fa-pen"></i>
+                                    </span>
+                                    <span><%= Object.keys(path)[0] %></span>
+                                </a>
+                        <% } else { %>
+                        <a class="button is-white is-outlined" href="<%= path['Profile'] %>">
                             <span class="icon">
                                 <i class="fa fa-pen"></i>
                             </span>
-                            <span>
-                                <%= signUp %></span>
+                            <span><%= Object.keys(path)[2] %></span>
                         </a>
+                        <% } %>
+
                     </span>
                     <span class="navbar-item">
-                        <a class="button is-white is-outlined" href="<%= url[1] %>">
+
+                            <% if(!isUserLoggedIn) { %>
+                        <a class="button is-white is-outlined" href="<%= path['log in'] %>">
                             <span class="icon">
                                 <i class="fa fa-suitcase"></i>
                             </span>
                             <span>
-                                <%= logIn %></span>
+                                <%= Object.keys(path)[1] %></span>
                         </a>
+                        <% } else { %>
+                            <a class="button is-white is-outlined" href="<%= path['log out'] %>">
+                                    <span class="icon">
+                                        <i class="fa fa-suitcase"></i>
+                                    </span>
+                                    <span>
+                                        <%= Object.keys(path)[3] %></span>
+                                </a>
+                                <% } %>
+
                     </span>
                 </div>
             </div>
