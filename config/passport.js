@@ -71,7 +71,7 @@ module.exports = function (passport) {
             newUser.save(function (err) {
               if (err)
                 throw err;
-              return done(null, newUser);
+              return done(null, newUser, req.flash('success', 'You signed In!'));
             });
           }
         });
@@ -110,7 +110,7 @@ module.exports = function (passport) {
           return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
 
         // all is well, return successful user
-        return done(null, user, req.flash('success', 'Welcome!'));
+        return done(null, user, req.flash('success', 'You logged In!'));
       });
     }));
 };
