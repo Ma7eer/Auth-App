@@ -15,7 +15,7 @@
                 <div class="navbar-end">
                     <span class="navbar-item">
 
-                        <% if(!isUserLoggedIn) { %>
+                        <% if(!user) { %>
                             <a class="button is-white is-outlined" href="<%=
                             path['Sign up'] %>">
                                     <span class="icon">
@@ -35,7 +35,7 @@
                     </span>
                     <span class="navbar-item">
 
-                            <% if(!isUserLoggedIn) { %>
+                            <% if(!user) { %>
                         <a class="button is-white is-outlined" href="<%= path['log in'] %>">
                             <span class="icon">
                                 <i class="fa fa-suitcase"></i>
@@ -59,3 +59,21 @@
         </div>
     </nav>
 </div>
+<div class="error-message">
+<% if (user) { %>
+<!-- show any messages that come back with authentication -->
+<% if (message && message.length > 0) { %>
+<div class="notification is-success">
+  <%= message %>
+</div>
+<% } %>
+</div>
+<% } else { %>
+<!-- show any messages that come back with authentication -->
+<% if (message && message.length > 0) { %>
+<div class="notification is-danger">
+  <%= message %>
+</div>
+<% } %>
+</div>
+<% } %>

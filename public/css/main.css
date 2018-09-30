@@ -56,3 +56,14 @@ p {
 p.subtitle {
   padding-top: 1rem;
 }
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.notification {
+  width: 80%;
+  top: 10px;
+}

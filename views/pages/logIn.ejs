@@ -9,12 +9,6 @@
         <h3 class="title has-text-grey">Log In</h3>
         <p class="subtitle has-text-grey">Welcome back! Please log in.</p>
         <div class="box">
-          <!-- show any messages that come back with authentication -->
-          <% if (message.length > 0) { %>
-          <div class="notification is-danger"><button class="delete"></button>
-            <%= message %>
-          </div>
-          <% } %>
           <form action="/login" method="post">
             <div class="field">
               <label style="display:flex;">username:</label>
