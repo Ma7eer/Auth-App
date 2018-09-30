@@ -1,5 +1,4 @@
 const middleware = require('../middlewares');
-let isUserLoggedIn = false;
 let path = {
   'Sign up': '/signup',
   'log in': '/login',
@@ -14,9 +13,8 @@ module.exports = function (app, passport) {
   // =====================================
   app.get('/', function (req, res) {
     res.render('pages/home', {
-      isUserLoggedIn,
       path,
-      message: '',
+      message: req.flash('logoutMessage'),
       user: req.user
     }); // load the index.ejs file
   });
@@ -29,7 +27,6 @@ module.exports = function (app, passport) {
 
     // render the page and pass in any flash data if it exists
     res.render('pages/logIn', {
-      isUserLoggedIn,
       path,
       message: req.flash('loginMessage'),
       user: req.user
@@ -51,7 +48,6 @@ module.exports = function (app, passport) {
 
     // render the page and pass in any flash data if it exists
     res.render('pages/signUp', {
-      isUserLoggedIn,
       path,
       message: req.flash('signupMessage'),
       user: req.user
@@ -73,8 +69,7 @@ module.exports = function (app, passport) {
   app.get('/profile',middleware.isLoggedIn, function (req, res) {
     res.render('pages/profile', {
       user: req.user, // get the user out of session and pass to template
-      message: req.flash('loginMessage', `Welcome ${req.user.local.username}!`),
-      isUserLoggedIn,
+      message: req.flash('success'),
       path
     });
   });
@@ -84,7 +79,7 @@ module.exports = function (app, passport) {
   // =====================================
   app.get('/logout', function (req, res) {
     req.logout();
-    isUserLoggedIn = false;
+    req.flash('logoutMessage', 'logged you out!');
     res.redirect('/');
   });
 };
