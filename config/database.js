@@ -1,3 +1,3 @@
 module.exports = {
-  'url': process.env.DATABASEURL
+  'url': process.env.DATABASEURL || 'mongodb://localhost/authApp'
 };
