@@ -1,4 +1,4 @@
-const PORT = process.env.npm_package_config_port || 3000,
+const PORT = 3000,
   express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
