@@ -23,7 +23,8 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 app.use(express.static(__dirname + '/public')); // use static files at public directory
 
 // PASSPORT CONFIGURATION
-app.use(session({ secret: 'authishardauthishardauthishard' })); // session secret
+app.use(session(
+  { secret: 'authishardauthishardauthishard', resave:false, saveUninitialized: false })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
